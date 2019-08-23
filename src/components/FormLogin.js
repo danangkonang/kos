@@ -4,13 +4,48 @@ import {
     TextInput,
     TouchableOpacity,
     Text,
-    StyleSheet
+    StyleSheet,
+    AsyncStorage
 } from 'react-native';
+import axios from 'axios';
+
+// import {  
+//     StackNavigator  
+// } from 'react-navigation'; 
+
 
 export default class FormLogin extends Component {
+
     constructor(props){
         super(props)
+        this.state={
+            email:'',
+            password:''
+        }
     }
+
+    login = () => {
+        fetch('http://192.168.0.20:3000/user/login', {
+            method: 'post',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email:this.state.email,
+                password:this.state.password
+            }),
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            alert('sukses login');
+            //this.props.content.navigate('chat')
+        })
+        .catch((error) => {
+        console.error(error);
+        });
+    }
+
     render() {
         return (
             <View style={styles.container} >
@@ -19,6 +54,8 @@ export default class FormLogin extends Component {
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholder='Email'
                     placeholderTextColor='#fff'
+                    onChangeText={(email)=> this.setState({email})}
+                    value={this.state.email}
                 />
                 <TextInput
                     style={styles.inputBox}
@@ -26,9 +63,11 @@ export default class FormLogin extends Component {
                     placeholder='Password'
                     placeholderTextColor='#fff'
                     secureTextEntry={true}
+                    onChangeText={(password)=>this.setState({password})}
+                    value={this.state.password}
                 />
                 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={this.login} >
                     <Text style={styles.buttonText} >Login</Text>
                 </TouchableOpacity>
             </View>

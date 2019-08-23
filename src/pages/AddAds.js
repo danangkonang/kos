@@ -3,7 +3,7 @@ import {
    View,
    Text
    } from 'react-native'
-export default class Detail extends Component {
+export default class AddAds extends Component {
 
 
 
@@ -11,7 +11,7 @@ export default class Detail extends Component {
    render() {
       return (
          <View style={{backgroundColor:'pink',flex:1}}>
-            <Text>detai room</Text>
+            <Text>pasang iklan</Text>
          </View>
       )
    }

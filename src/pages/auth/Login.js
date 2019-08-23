@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    StyleSheet
-} from 'react-native';
+import React, { Component } from 'react';  
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';  
 
-import Logo from '../components/Logo';
-import FormLogin from '../components/FormLogin';
-
-export default class Login extends Component {
-    render() {
-        return (
+import FormLogin from '../../components/FormLogin';
+export default class Job extends Component {  
+   static navigationOptions = {  
+        title: 'Welcome',  
+   };  
+   render() {  
+       return (  
+        
             <View style={styles.container} >
-                <Logo/>
-                <FormLogin/>
+                {/* <Logo/> */}
+                <FormLogin content={this.props.navigation}/>
                 <View style={styles.singupText}>
                    
                     <Text style={styles.singupTextContex}>Don't have accunt?</Text>
@@ -25,9 +22,9 @@ export default class Login extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-        )
-    }
-}
+       );  
+   }  
+}  
 
 const styles = StyleSheet.create({
     container :{

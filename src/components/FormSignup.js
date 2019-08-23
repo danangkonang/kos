@@ -10,7 +10,37 @@ import {
 export default class FormSignup extends Component {
     constructor(props){
         super(props)
+        this.state={
+            email:'',
+            password:'',
+            // repeatPassword:''
+        }
     }
+
+    registrasi = () => {
+        fetch('http://192.168.0.20:3000/user/register', {
+            method: 'post',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email:this.state.email,
+                password:this.state.password
+            }),
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            alert('sukses daftar');
+            //this.props.content.navigate('chat')
+
+        })
+        .catch((error) => {
+        console.error(error);
+        });
+    }
+
+    
     render() {
         return (
             <View style={styles.container} >
@@ -19,6 +49,8 @@ export default class FormSignup extends Component {
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholder='Email'
                     placeholderTextColor='#fff'
+                    onChangeText={(email)=> this.setState({email})}
+                    value={this.state.email}
                 />
                 <TextInput
                     style={styles.inputBox}
@@ -26,17 +58,21 @@ export default class FormSignup extends Component {
                     placeholder='Password'
                     placeholderTextColor='#fff'
                     secureTextEntry={true}
+                    onChangeText={(password)=> this.setState({password})}
+                    value={this.state.password}
                 />
-                <TextInput
+                {/* <TextInput
                     style={styles.inputBox}
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholder='Repeat Password'
                     placeholderTextColor='#fff'
                     secureTextEntry={true}
-                />
+                    onChangeText={(repeatPassword)=> this.setState({repeatPassword})}
+                    value={this.state.repeatPassword}
+                /> */}
                 
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText} >Sign up</Text>
+                <TouchableOpacity style={styles.button} onPress={this.registrasi}>
+                    <Text style={styles.buttonText} > Daftar</Text>
                 </TouchableOpacity>
             </View>
         )

@@ -5,14 +5,14 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import Logo from '../components/Logo';
-import Form from '../components/FormSignup';
+//import Logo from '../components/Logo';
+import Form from '../../components/FormSignup';
 
 export default class Singup extends Component {
     render() {
         return (
             <View style={styles.container} >
-                <Logo/>
+                {/* <Logo/> */}
                 <Form/>
                 <View style={styles.singupText}>
                     <Text style={styles.singupTextContex}>Have accunt please?</Text>
