@@ -11,7 +11,7 @@ import IconHomeLeft from './components/header/IconHomeLeft';
 import IconHomeRight from './components/header/IconHomeRight';
 
 import Login from './pages/auth/Login'
-import Register from './pages/auth/Signup'
+import Registrasi from './pages/auth/Registrasi'
 import Chat from './pages/Chat';
 import Notif from './pages/Notif';
 import User from './pages/User';
@@ -20,6 +20,12 @@ import AddAds from './pages/AddAds'
 import Detail from './pages/Detail'
 
 const AppNavigator = createStackNavigator({
+    // detail: {
+    //     screen : Detail,
+    //     navigationOptions:{
+    //         header:null
+    //     }
+    // },
     home: {
         screen : Home,
         navigationOptions:({ navigation }) => {
@@ -27,6 +33,9 @@ const AppNavigator = createStackNavigator({
                 headerLeft: (
                     <IconHomeLeft/>
                 ),
+                // title:(
+
+                // ),
                 headerRight: (
                     <IconHomeRight/>
 				 ),
@@ -58,22 +67,22 @@ const AppNavigator = createStackNavigator({
         }
     },
     register: {
-        screen : Register,
+        screen : Registrasi,
         navigationOptions:{
             header:null
         }
     },
     listRoom: {
         screen : ListRoom,
-        navigationOptions:{
-            header:null
-        }
+        // navigationOptions:{
+        //     header:null
+        // }
     },
     addAds: {
         screen : AddAds,
-        navigationOptions:{
-            header:null
-        }
+        // navigationOptions:{
+        //     header:null
+        // }
     },
     detail: {
         screen : Detail,

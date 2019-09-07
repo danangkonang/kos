@@ -38,7 +38,12 @@ export default class FormLogin extends Component {
         })
         .then((response) => response.json())
         .then((responseJson) => {
-            alert('sukses login');
+            if(responseJson.succes==true){
+                alert('sukses')
+            }else{
+                alert('gagal')
+            }
+            //alert('sukses login');
             //this.props.content.navigate('chat')
         })
         .catch((error) => {

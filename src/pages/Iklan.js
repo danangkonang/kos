@@ -192,12 +192,12 @@ export default class AddAds extends Component {
         
         
 
-        <View style={{backgroundColor:'#fff',padding:4}}>
-            <TouchableOpacity style={{backgroundColor: "#0397d5", marginBottom:5, justifyContent: "center",alignItems:'center',paddingVertical:15,borderRadius:5}}
+        <View style={{backgroundColor:'#fff',flexDirection:'row'}}>
+            {/* <TouchableOpacity style={{backgroundColor: "#1BAA56", marginBottom:5, justifyContent: "center",alignItems:'center',paddingVertical:15}}
                 onPress={this.store}>
-                <Text style={{color: '#ddd',fontSize:16, fontWeight: 'bold'}}>Simpan</Text>
-            </TouchableOpacity>
-            {/* <View style={{backgroundColor:'#fff',flex:1,padding:4}}>
+                <Text style={{color: '#FFF', fontWeight: 'bold'}}>Book</Text>
+            </TouchableOpacity> */}
+            <View style={{backgroundColor:'#fff',flex:1,padding:4}}>
                 <TouchableOpacity style={{backgroundColor: "#1BAA56",justifyContent: "center",alignItems:'center',paddingVertical:15,borderRadius:5}}
                     onPress={this.store}>
                     <Text style={{color: '#FFF', fontWeight: 'bold'}}>Chat</Text>
@@ -208,7 +208,7 @@ export default class AddAds extends Component {
                     onPress={this.store}>
                     <Text style={{color: '#FFF', fontWeight: 'bold'}}>Book</Text>
                 </TouchableOpacity>
-            </View> */}
+            </View>
         </View>
 
     </View>
